@@ -1,0 +1,515 @@
+/* checkout.css – Single-project purchase page (builds on main.css + app.css tokens) */
+
+/* ── Wrapper ─────────────────────────────────── */
+.checkout-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.checkout-page-header {
+  margin-bottom: 32px;
+}
+
+.checkout-page-title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--text-0);
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.checkout-page-desc {
+  font-size: 0.9375rem;
+  color: var(--text-2);
+  margin-bottom: 20px;
+}
+
+/* ── Currency switch ─────────────────────────── */
+.currency-switch {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--border-2);
+  border-radius: 100px;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.currency-switch a {
+  padding: 7px 18px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.currency-switch a.active {
+  background: var(--text-0);
+  color: #fff;
+}
+
+.currency-switch a:hover:not(.active) {
+  color: var(--text-0);
+}
+
+/* ── Two-column layout ───────────────────────── */
+.checkout-body {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ── Product card (left) ─────────────────────── */
+.checkout-product {
+  background: var(--bg-1);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.checkout-product-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-0);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.checkout-product-tagline {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.checkout-unit-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+
+.checkout-price-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.checkout-price-big {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-0);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.checkout-price-each {
+  font-size: 0.875rem;
+  color: var(--text-3);
+}
+
+/* ── Discount tier display ───────────────────── */
+.discount-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 28px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.discount-tier {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--text-3);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
+}
+
+.discount-tier:last-child {
+  border-bottom: none;
+}
+
+.discount-tier.active {
+  background: rgba(26,138,117,0.06);
+  color: var(--text-0);
+}
+
+.discount-tier-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.discount-tier-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border-2);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.discount-tier.active .discount-tier-dot {
+  background: var(--accent);
+}
+
+.discount-tier-name {
+  font-weight: 500;
+}
+
+.discount-tier-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: rgba(26,138,117,0.1);
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.discount-tier.active .discount-tier-badge {
+  opacity: 1;
+}
+
+/* ── Quantity control ────────────────────────── */
+.qty-section {
+  margin-bottom: 28px;
+}
+
+.qty-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-1);
+  margin-bottom: 10px;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: fit-content;
+  border: 1.5px solid var(--border-2);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-1);
+}
+
+.qty-btn {
+  width: 48px;
+  height: 48px;
+  background: var(--bg-2);
+  color: var(--text-1);
+  border: none;
+  cursor: pointer;
+  font-size: 1.375rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  user-select: none;
+  line-height: 1;
+  font-family: var(--font-sans);
+}
+
+.qty-btn:hover { background: var(--bg-3); color: var(--text-0); }
+.qty-btn:active { background: var(--bg-4); }
+
+.qty-input {
+  width: 64px;
+  height: 48px;
+  text-align: center;
+  border: none;
+  border-left: 1.5px solid var(--border-2);
+  border-right: 1.5px solid var(--border-2);
+  background: var(--bg-1);
+  color: var(--text-0);
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  outline: none;
+  letter-spacing: -0.01em;
+}
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.qty-input[type=number] { -moz-appearance: textfield; }
+
+/* ── Feature list ────────────────────────────── */
+.checkout-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.checkout-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--text-1);
+  line-height: 1.5;
+}
+
+.checkout-feature-check {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ── Order summary (right column) ────────────── */
+.checkout-summary {
+  background: var(--bg-1);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: sticky;
+  top: 80px;
+}
+
+.checkout-summary-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-0);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.checkout-summary-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  padding: 6px 0;
+}
+
+.checkout-summary-line .label { color: var(--text-2); }
+.checkout-summary-line .value { color: var(--text-0); font-weight: 500; }
+
+.checkout-summary-discount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  padding: 6px 0;
+  color: var(--accent);
+}
+
+.checkout-summary-discount .value {
+  font-weight: 600;
+}
+
+.checkout-summary-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+
+.checkout-summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-summary-total-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+.checkout-summary-total-amount {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--text-0);
+  letter-spacing: -0.03em;
+}
+
+/* ── Pay button ──────────────────────────────── */
+.checkout-pay-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.18s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+
+.checkout-pay-btn:hover {
+  background: var(--accent-h);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-accent);
+}
+
+.checkout-pay-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Embedded payment area ───────────────────── */
+.payment-embed-wrap {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.payment-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-size: 0.8125rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+  transition: color 0.15s;
+}
+
+.payment-back-btn:hover { color: var(--text-1); }
+
+.payment-embed-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-0);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+/* Loading spinner for payment init */
+.payment-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 20px;
+  color: var(--text-3);
+  font-size: 0.875rem;
+}
+
+.payment-loading-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+#mp-brick-container,
+#paypal-button-container {
+  min-height: 60px;
+}
+
+/* PayPal button override */
+#paypal-button-container .paypal-button-label-container {
+  font-family: var(--font-sans) !important;
+}
+
+/* ── Guarantee strip ─────────────────────────── */
+.checkout-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-3);
+  margin-top: 16px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Quota banner ────────────────────────────── */
+.quota-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1.5px solid;
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  margin-bottom: 28px;
+}
+
+.quota-banner-text {
+  font-size: 0.9375rem;
+  color: var(--text-1);
+  line-height: 1.4;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .checkout-body {
+    grid-template-columns: 1fr;
+  }
+
+  /* summary below product/qty on mobile so quantity is visible without scrolling */
+  .checkout-summary {
+    position: static;
+    order: 1;
+  }
+
+  .checkout-product { order: 0; }
+
+  .checkout-price-big { font-size: 2rem; }
+  .checkout-page-title { font-size: 1.375rem; }
+  .checkout-product { padding: 24px 20px; }
+  .checkout-summary { padding: 20px; }
+}
+
+/* ── Dark mode overrides ─────────────────────────────────── */
+
+/* Currency switch: active tab must be readable (var(--text-0) in dark = #F0EBE3, white text on it = invisible) */
+[data-theme="dark"] .currency-switch {
+  background: var(--bg-2);
+  border-color: var(--border-2);
+}
+[data-theme="dark"] .currency-switch a {
+  color: var(--text-2);
+}
+[data-theme="dark"] .currency-switch a.active {
+  background: var(--bg-4);   /* slightly lighter than inactive bg → clearly selected */
+  color: var(--text-0);
+}
+[data-theme="dark"] .currency-switch a:hover:not(.active) {
+  color: var(--text-0);
+}
+
+/* Pay button: teal bg is bright in dark mode → use dark text */
+[data-theme="dark"] .checkout-pay-btn {
+  color: var(--accent-text);
+}
